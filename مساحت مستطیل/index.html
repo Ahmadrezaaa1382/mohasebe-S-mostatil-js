@@ -1,47 +1,39 @@
 <!DOCTYPE html>
 <html lang="fa">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>محاسبه مساحت مستطیل</title>
-</head>
-<body style="direction: rtl;">
-  <h3>محاسبه مساحت مستطیل:</h3>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>محاسبه مساحت مستطیل</title>
+  </head>
+  <body style="direction: rtl">
+    <h3>محاسبه مساحت مستطیل:</h3>
 
-  <label for="t">طول:</label>
-  <input type="number" id="toolnumber">
-  <br><br>
+    <label for="t">طول:</label>
+    <input type="number" id="toolnumber" />
+    <br /><br />
 
-  <label for="a">عرض:</label>
-  <input type="number" id="arznumber">
-  <br><br>
+    <label for="a">عرض:</label>
+    <input type="number" id="arznumber" />
+    <br /><br />
 
-  <button onclick="hesabKon()">محاسبه مساحت</button>
+    <button onclick="hesabKon()">محاسبه مساحت</button>
 
-  <p id="showS"></p>
-
-  <script>
-    function mohasebeS(tool, arz) {
-     
-      if (tool <= 0 || arz <= 0) {
-        return "طول و عرض باید بزرگ‌تر از صفر باشند.";
-      } else {
-        let masahatmostatil = (tool * arz)
-        return "مساحت مستطیل برابر است با: " + masahatmostatil;
+    <p id="showS"></p>
+    <script>
+      let tool = document.getElementById("toolnumber");
+      let arz = document.getElementById("arznumber");
+      let show = document.getElementById("showS");
+      function mohasebeS(tool, arz) {
+        if (tool <= 0 || arz <= 0) {
+          return "طول و عرض باید بزرگ‌تر از صفر باشند.";
+        } else {
+        return "مساحت مستطیل برابر است با: " + (tool * arz);
+        }
       }
-       
-      
-    }
 
-    function hesabKon() {
-      let tool = document.getElementById("toolnumber").value;
-      let arz = document.getElementById("arznumber").value;
-
-      let natije = mohasebeS(tool, arz);
-      
-      let show =document.getElementById("showS")
-      show.innerText = natije;
-    }
-  </script>
-</body>
+      function hesabKon() {
+        show.innerText = mohasebeS(tool.value, arz.value);
+      }
+    </script>
+  </body>
 </html>
